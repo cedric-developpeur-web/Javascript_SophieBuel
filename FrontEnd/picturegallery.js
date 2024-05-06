@@ -4,7 +4,7 @@ let refGallery;
 
 // ****************************************PARTI AFFICHAGE GALERIE**********************************
 
-// *****************************affichage image + organistion dynamique balise html******************
+// recuperation des images de la galerie avec la creation des balise html dynamique
 async function donneeGallery() {
   const apiGallery = 'http://localhost:5678/api/works';
   const reponse = await fetch(apiGallery);
@@ -40,7 +40,7 @@ divBouton.classList.add('posi_btn');
 divParentBouton.appendChild(divBouton);
 divParentBouton.insertBefore(divBouton, divParentBouton.childNodes[2]);
 
-// **********************************creation boutons tous********************************
+// **********************************creation du boutons tous de facon dynamique********************************
 const baliseBoutonTous = document.createElement('button');
 baliseBoutonTous.textContent = 'Tous';
 // ajout d'une classe css
@@ -57,7 +57,9 @@ function initialiserGallery() {
 }
 initialiserGallery();
 
-// **************************creation 3 boutons dynamique par categories*********************
+// **************************creation de 3 boutons dynamique par categories*********************
+
+// recuperation des categories pour les attribuers les nom et id des images part categories
 const boutonDyna = document.querySelector('.posi_btn');
 // creation fonction asynchrone + fonction fetch
 async function donneeBoutonDyna() {
